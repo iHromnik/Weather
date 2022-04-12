@@ -33,9 +33,16 @@
                                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wkY-Fk-RL2"/>
                                                 </connections>
                                             </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rS8-nO-V4j">
+                                                <rect key="frame" x="175" y="236" width="64" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="rS8-nO-V4j" firstAttribute="top" secondItem="Lvb-yR-frz" secondAttribute="top" constant="236" id="2O9-4d-Uct"/>
+                                            <constraint firstItem="rS8-nO-V4j" firstAttribute="centerX" secondItem="Lvb-yR-frz" secondAttribute="centerX" id="4PI-zf-9Tl"/>
                                             <constraint firstItem="LCR-MX-TyX" firstAttribute="centerX" secondItem="Lvb-yR-frz" secondAttribute="centerX" id="JG5-tF-siu"/>
                                             <constraint firstAttribute="bottom" secondItem="LCR-MX-TyX" secondAttribute="bottom" constant="261" id="bet-Vf-5ws"/>
                                         </constraints>
