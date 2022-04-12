@@ -79,7 +79,6 @@
 		304DDF4A28055E1100945411 = {
 			isa = PBXGroup;
 			children = (
-				3000725F28055F8C00C73AEB /* LoginViewController.swift */,
 				304DDF5528055E1100945411 /* Weather */,
 				304DDF6C28055E1600945411 /* WeatherTests */,
 				304DDF7628055E1600945411 /* WeatherUITests */,
@@ -102,6 +101,7 @@
 			children = (
 				304DDF5628055E1100945411 /* AppDelegate.swift */,
 				304DDF5828055E1100945411 /* SceneDelegate.swift */,
+				3000725F28055F8C00C73AEB /* LoginViewController.swift */,
 				304DDF5C28055E1100945411 /* Main.storyboard */,
 				304DDF5F28055E1600945411 /* Assets.xcassets */,
 				304DDF6128055E1600945411 /* LaunchScreen.storyboard */,

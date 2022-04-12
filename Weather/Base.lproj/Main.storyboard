@@ -29,6 +29,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wkY-Fk-RL2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,6 +62,9 @@
                             <constraint firstItem="njh-oq-gI2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="s5N-Eh-y96"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="njh-oq-gI2" id="bLT-7C-njo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
