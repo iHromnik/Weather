@@ -26,8 +26,4 @@ override func viewDidLoad() {
         scrollView.contentInset = insets
     }
     
-    @IBAction func loginButton(_ sender: UIButton) {
-        print("Hello")
-    }
-    
 }
