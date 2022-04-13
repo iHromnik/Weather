@@ -47,9 +47,73 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+//    ==========
+//    transfer data to anouther screen
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        switch segue.identifier {
+//        case "toSecondVC":
+//            if let destination = segue.destination as? SecondViewController {
+//            destination.textForLable = loginTF.text!
+//            }
+//        default:
+//            break
+//        }
+//    }
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+       let result = checkUserCredentials()
+        if !result {
+            showResalt()
+        }
+        
+        return result
+    }
+    
+    func checkUserCredentials() -> Bool {
+       return loginTF.text == "" && passwordTF.text == ""
+    }
+    
+    func showResalt() {
+        let alert = UIAlertController(title: "Error", message: "Wrong Credetional", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func passwordButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "toSecondScreen", sender: self)
+  // ========
+    // (Segue)
+        // performSegue(withIdentifier: "toSecondScreen", sender: self)
+        
+ // =======
+ //       (Moodally)
+//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        let destinationViewController = storyBoard.instantiateViewController(identifier: "SecondViewController")
+//        present(destinationViewController, animated: true, completion: nil)
+        
+//  =======
+//        (Navigation Controller)
+//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        let destinationViewController = storyBoard.instantiateViewController(identifier: "SecondViewController")
+//        navigationController?.pushViewController(destinationViewController, animated: true)
+       
+        // Navigation comtrollr:
+        // push - pop
+        // segue, modal:
+        // present - dismiss
+        
+        
+        
+        
+    }
+    
+    @IBAction func unwindSegueDidTab(_ segue: UIStoryboardSegue){
+       // print("back")
     }
     
 }
+
+
+

@@ -59,6 +59,7 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                                         <connections>
                                                             <action selector="passwordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZ2-bt-vYY"/>
+                                                            <segue destination="wHx-Al-3KO" kind="presentation" identifier="toSecondVC" id="TfC-hW-7DD"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -97,31 +98,71 @@
                             <constraint firstItem="njh-oq-gI2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="s5N-Eh-y96"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dxM-iB-4a8"/>
                     <connections>
                         <outlet property="loginTF" destination="kp0-JY-OeM" id="tfW-da-8bV"/>
                         <outlet property="passwordTF" destination="yjG-ep-lM6" id="DBN-4j-eHN"/>
                         <outlet property="scrollView" destination="njh-oq-gI2" id="bLT-7C-njo"/>
-                        <segue destination="wHx-Al-3KO" kind="presentation" identifier="toSecondScreen" id="Lu8-e2-AUt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="75.669642857142847"/>
+            <point key="canvasLocation" x="944.92753623188412" y="75.669642857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="B1o-8w-bN1">
             <objects>
-                <viewController id="wHx-Al-3KO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" modalPresentationStyle="fullScreen" id="wHx-Al-3KO" customClass="SecondViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S1y-AD-SGO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="emailLable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xB-bM-jLD">
+                                <rect key="frame" x="166" y="437.5" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb1-z4-lAW">
+                                <rect key="frame" x="146.5" y="294" width="121" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Dismiss Button">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="dismissButton:" destination="wHx-Al-3KO" eventType="touchUpInside" id="fa9-7s-Pfl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKv-rO-aU4">
+                                <rect key="frame" x="20" y="44" width="62.5" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Ick-85-MPw" kind="unwind" unwindAction="unwindSegueDidTab:" id="5sl-5N-adm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="cBJ-aD-DJh"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="Fb1-z4-lAW" firstAttribute="top" secondItem="cBJ-aD-DJh" secondAttribute="top" constant="250" id="1bn-Bs-mon"/>
+                            <constraint firstItem="cBJ-aD-DJh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yKv-rO-aU4" secondAttribute="trailing" symbolic="YES" id="29A-Sx-rc2"/>
+                            <constraint firstItem="yKv-rO-aU4" firstAttribute="leading" secondItem="cBJ-aD-DJh" secondAttribute="leading" constant="20" id="NrV-qt-JzU"/>
+                            <constraint firstItem="2xB-bM-jLD" firstAttribute="centerY" secondItem="S1y-AD-SGO" secondAttribute="centerY" id="SW6-Co-qdN"/>
+                            <constraint firstItem="2xB-bM-jLD" firstAttribute="centerX" secondItem="S1y-AD-SGO" secondAttribute="centerX" id="UZs-5c-28R"/>
+                            <constraint firstItem="Fb1-z4-lAW" firstAttribute="centerX" secondItem="S1y-AD-SGO" secondAttribute="centerX" id="V9A-Mc-bW4"/>
+                            <constraint firstItem="yKv-rO-aU4" firstAttribute="top" secondItem="cBJ-aD-DJh" secondAttribute="top" id="tOf-fD-Mq4"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ksT-Tn-rNs"/>
+                    <connections>
+                        <outlet property="emailLable" destination="2xB-bM-jLD" id="cy0-KE-b05"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jrz-zZ-Jv3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Ick-85-MPw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="764" y="87"/>
+            <point key="canvasLocation" x="1673.913043478261" y="86.383928571428569"/>
         </scene>
     </scenes>
     <resources>
