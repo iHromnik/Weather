@@ -101,16 +101,35 @@
                         <outlet property="loginTF" destination="kp0-JY-OeM" id="tfW-da-8bV"/>
                         <outlet property="passwordTF" destination="yjG-ep-lM6" id="DBN-4j-eHN"/>
                         <outlet property="scrollView" destination="njh-oq-gI2" id="bLT-7C-njo"/>
+                        <segue destination="wHx-Al-3KO" kind="presentation" identifier="toSecondScreen" id="Lu8-e2-AUt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="75.669642857142847"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="B1o-8w-bN1">
+            <objects>
+                <viewController id="wHx-Al-3KO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S1y-AD-SGO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cBJ-aD-DJh"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jrz-zZ-Jv3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="87"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

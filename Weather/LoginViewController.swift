@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -12,6 +12,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        scrollView.delegate = self
+        
+        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(didTapOnScroll))
+        view.addGestureRecognizer(tabGesture)
+        view.isUserInteractionEnabled = true
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keybordWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keybordWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
@@ -30,8 +37,19 @@ class LoginViewController: UIViewController {
         scrollView.contentInset = insets
     }
  
+    @objc func didTapOnScroll() {
+        view.endEditing(true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
+    }
+    
     
     @IBAction func passwordButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "toSecondScreen", sender: self)
     }
     
 }
