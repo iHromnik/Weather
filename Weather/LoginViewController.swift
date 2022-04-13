@@ -4,8 +4,12 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var loginTF: UITextField!
     
-override func viewDidLoad() {
+    @IBOutlet weak var passwordTF: UITextField!
+    
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(keybordWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -24,6 +28,10 @@ override func viewDidLoad() {
     @objc func keybordWillHide (notification: Notification) {
         let insets = UIEdgeInsets.zero
         scrollView.contentInset = insets
+    }
+ 
+    
+    @IBAction func passwordButton(_ sender: UIButton) {
     }
     
 }
