@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func showResalt() {
-        let alert = UIAlertController(title: "Error", message: "Wrong Credetional", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: "Wrong login or password", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(alertAction)
         present(alert, animated: true, completion: nil)
@@ -96,24 +96,22 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
 //        present(destinationViewController, animated: true, completion: nil)
         
 //  =======
-//        (Navigation Controller)
+     //   (Navigation Controller)
 //        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 //        let destinationViewController = storyBoard.instantiateViewController(identifier: "SecondViewController")
 //        navigationController?.pushViewController(destinationViewController, animated: true)
-       
+//
         // Navigation comtrollr:
         // push - pop
         // segue, modal:
         // present - dismiss
         
         
-        
-        
     }
-    
-    @IBAction func unwindSegueDidTab(_ segue: UIStoryboardSegue){
-       // print("back")
-    }
+    // return fo segue - exit
+//    @IBAction func unwindSegueDidTab(_ segue: UIStoryboardSegue){
+//       // print("back")
+//    }
     
 }
 
