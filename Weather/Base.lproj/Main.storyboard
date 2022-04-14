@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,28 +103,44 @@
                         <outlet property="loginTF" destination="kp0-JY-OeM" id="tfW-da-8bV"/>
                         <outlet property="passwordTF" destination="yjG-ep-lM6" id="DBN-4j-eHN"/>
                         <outlet property="scrollView" destination="njh-oq-gI2" id="bLT-7C-njo"/>
+                        <segue destination="zMC-5f-HnY" kind="presentation" identifier="toSecondScreen" id="jXG-Jz-q32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944.92753623188412" y="75.669642857142847"/>
+            <point key="canvasLocation" x="1267" y="96"/>
         </scene>
-        <!--Table View Controller-->
+        <!--My Cities-->
         <scene sceneID="G4Q-vM-p1T">
             <objects>
-                <tableViewController id="8ek-gx-6G6" sceneMemberID="viewController">
+                <tableViewController id="8ek-gx-6G6" customClass="MycitiesTableViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="4gb-nK-G0C">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mBr-On-gjQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="mBr-On-gjQ" customClass="MyCitiesTableViewCell" customModule="Weather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mBr-On-gjQ" id="dDi-Rf-lnm">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xug-d6-wfV">
+                                            <rect key="frame" x="186" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Xug-d6-wfV" firstAttribute="centerX" secondItem="dDi-Rf-lnm" secondAttribute="centerX" id="Ny7-4q-efL"/>
+                                        <constraint firstItem="Xug-d6-wfV" firstAttribute="centerY" secondItem="dDi-Rf-lnm" secondAttribute="centerY" id="Q5q-dZ-mxq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="MyCitiesLable" destination="Xug-d6-wfV" id="Xbx-4W-ygq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -132,7 +148,13 @@
                             <outlet property="delegate" destination="8ek-gx-6G6" id="SBA-xh-pEY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Mf4-BG-srg"/>
+                    <navigationItem key="navigationItem" title="My Cities" id="Mf4-BG-srg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aCm-GY-ZLf">
+                            <connections>
+                                <segue destination="ojT-3c-tFx" kind="show" id="dQx-8t-wYP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QGD-MC-diW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -172,22 +194,38 @@
             </objects>
             <point key="canvasLocation" x="2183" y="792"/>
         </scene>
-        <!--Table View Controller-->
+        <!--City-->
         <scene sceneID="NMd-GA-URj">
             <objects>
-                <tableViewController id="ojT-3c-tFx" sceneMemberID="viewController">
+                <tableViewController id="ojT-3c-tFx" customClass="CityTableViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="naM-1x-WzR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="W08-0q-H5S">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="W08-0q-H5S" customClass="CityTableViewCell" customModule="Weather" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W08-0q-H5S" id="P1M-fA-xAu">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6q6-MC-FER">
+                                            <rect key="frame" x="186" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6q6-MC-FER" firstAttribute="centerX" secondItem="P1M-fA-xAu" secondAttribute="centerX" id="4wg-Aj-B8G"/>
+                                        <constraint firstItem="6q6-MC-FER" firstAttribute="centerY" secondItem="P1M-fA-xAu" secondAttribute="centerY" id="IoI-z8-Ubg"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityLabel" destination="6q6-MC-FER" id="89H-Ks-BBU"/>
+                                    <segue destination="tSm-UK-NdP" kind="unwind" unwindAction="unwindFromTableViewController:" id="7SJ-OS-vnV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -195,15 +233,17 @@
                             <outlet property="delegate" destination="ojT-3c-tFx" id="D4G-ej-bGJ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="City" id="9oq-eh-Gzb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBl-ip-XAe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="tSm-UK-NdP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3905.7971014492755" y="96.428571428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lql-Xh-V4r">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zMC-5f-HnY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="zMC-5f-HnY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YGy-Gy-IK0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

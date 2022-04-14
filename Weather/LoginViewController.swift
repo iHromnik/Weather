@@ -87,8 +87,9 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func passwordButton(_ sender: UIButton) {
   // ========
     // (Segue)
-        // performSegue(withIdentifier: "toSecondScreen", sender: self)
-        
+        if shouldPerformSegue(withIdentifier: "toSecondScreen", sender: nil) {
+         performSegue(withIdentifier: "toSecondScreen", sender: self)
+        }
  // =======
  //       (Moodally)
 //        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
