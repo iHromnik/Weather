@@ -10,6 +10,9 @@ import UIKit
 class MycitiesTableViewController: UITableViewController {
 
     var cities: [String] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +41,17 @@ class MycitiesTableViewController: UITableViewController {
             return cell
         }
         return UITableViewCell()
+        
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            cities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    
     @IBAction func unwindFromTableViewController(_ segue: UIStoryboardSegue) {
        
         guard let tableViewController = segue.source as? CityTableViewController,

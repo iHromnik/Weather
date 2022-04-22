@@ -41,7 +41,7 @@ class CityTableViewController: UITableViewController {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CityTableViewCell {
             cell.cityLabel.text = city[indexPath.row]
-            print(indexPath.section, indexPath.row)
+           // print(indexPath.section, indexPath.row)
             return cell
         }
         return UITableViewCell()
