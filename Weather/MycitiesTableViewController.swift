@@ -56,9 +56,44 @@ class MycitiesTableViewController: UITableViewController {
        
         guard let tableViewController = segue.source as? CityTableViewController,
               let indexPath = tableViewController.tableView.indexPathForSelectedRow else {return}
-        let city = tableViewController.city[indexPath.row]
-        if cities.contains(city) {return}
+       
+        
+        switch indexPath.section {
+    case 0:
+        let city = tableViewController.europianCity[indexPath.row]
+            if cities.contains(city) {return}
         cities.append(city)
+        case 1:
+            let city = tableViewController.asianCity[indexPath.row]
+            if cities.contains(city) {return}
+            cities.append(city)
+        default:
+            return
+        }
+        
+//        if indexPath.section == 0 {
+//            let city = tableViewController.europianCity[indexPath.row]
+//           //        if cities.contains(city) {return}
+//            //if cities.contains(city2) {return}
+//            cities.append(city)
+//           //        //cities.append(city2)
+//        }  else {
+//            let city = tableViewController.asianCity[indexPath.row]
+//           //        if cities.contains(city) {return}
+//            //if cities.contains(city2) {return}
+//            cities.append(city)
+//        }
+//
+        
+        
+//        let city = tableViewController.europianCity[indexPath.section]
+//       // let city2 = tableViewController.asianCity[indexPath.row]
+//        if cities.contains(city) {return}
+//        //if cities.contains(city2) {return}
+//        cities.append(city)
+//        //cities.append(city2)
+        
+        
         tableView.reloadData()
     }
     /*

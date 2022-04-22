@@ -9,10 +9,13 @@ import UIKit
 
 class CityTableViewController: UITableViewController {
 
-    let city: [String] = [
+    let europianCity: [String] = [
         "Moscov", "Omsk", "Riga", "Belgrad", "Paris", "Kiev"
     ]
     
+    let asianCity = ["1", "2", "3"]
+    
+    let cityContinents = ["Europe", "Asia"]
   //  let city = (1...30).map {String($0)}
     
     override func viewDidLoad() {
@@ -29,20 +32,47 @@ class CityTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return cityContinents.count
     }
 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return city.count
+        switch section {
+        case 0:
+            return europianCity.count
+        case 1:
+            return asianCity.count
+        default:
+            return 0
+        }
     }
 
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return cityContinents[section]
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CityTableViewCell {
-            cell.cityLabel.text = city[indexPath.row]
+            
+            switch indexPath.section {
+            case 0:
+                cell.cityLabel.text = europianCity[indexPath.row]
+                return cell
+            case 1:
+                cell.cityLabel.text = asianCity[indexPath.row]
+                return cell
+            default:
+                return UITableViewCell()
+            }
+            
+            
+            
+           // cell.cityLabel.text = city[indexPath.row]
            // print(indexPath.section, indexPath.row)
-            return cell
+            //return cell
         }
         return UITableViewCell()
     }
